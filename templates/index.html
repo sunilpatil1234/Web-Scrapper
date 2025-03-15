@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Scraper</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/template.css" rel="stylesheet">
+    <link href="assets/css/fa.min.css" rel="stylesheet">
+    <link href="assets/css/gfonts.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+        }
+        .navbar a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .list-group-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .list-group-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="switcher-bar clearfix text-center">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="Logo" width="150" height="auto">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="container">
+        <div class="card p-4 shadow-lg">
+            <h2 class="text-center">Enter Website URL to Scrape</h2>
+            <form method="POST" class="text-center">
+                <label for="url" class="form-label">Website URL:</label>
+                <input type="text" id="url" name="url" class="form-control mb-3" placeholder="Enter website URL" required>
+                <button type="submit" class="btn btn-primary">Scrape</button>
+            </form>
+        </div>
+
+        {% if data %}
+            <div class="card p-4 mt-4 shadow">
+                <h3 class="text-center">Scraped Results</h3>    
+                <ul class="list-group">
+                    {% for item in data %}
+                        <li class="list-group-item"><a href="{{ item.URL }}">{{ item.Text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+1.  - https://news.ycombinator.com
+2. Hacker News - news
+3. new - newest
+4. past - front
+5. comments - newcomments
+6. ask - ask
+7. show - show
+8. jobs - jobs
+9. submit - submit
+10. login - login?goto=news
